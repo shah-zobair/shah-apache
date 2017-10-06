@@ -1,0 +1,52 @@
+<style style="text/css">
+.horizontally {
+ height: 100px;
+ overflow: hidden;
+ position: relative;
+}
+.horizontally .inner {
+ position: absolute;
+ width: 100%;
+ height: 100%;
+ text-align: center;
+ /* Starting position */
+ -moz-transform:translateX(40%);
+ -webkit-transform:translateX(40%);
+ transform:translateX(40%);
+ /* Apply animation to this element */
+ -moz-animation: horizontally 5s linear infinite alternate;
+ -webkit-animation: horizontally 5s linear infinite alternate;
+ animation: horizontally 5s linear infinite alternate;
+}
+/* Move it (define the animation) */
+@-moz-keyframes horizontally {
+ 0%   { -moz-transform: translateX(40%); }
+ 100% { -moz-transform: translateX(-40%); }
+}
+@-webkit-keyframes horizontally {
+ 0%   { -webkit-transform: translateX(40%); }
+ 100% { -webkit-transform: translateX(-40%); }
+}
+@keyframes horizontally {
+ 0%   {
+ -moz-transform: translateX(40%); /* Browser bug fix */
+ -webkit-transform: translateX(40%); /* Browser bug fix */
+ transform: translateX(40%);
+ }
+ 100% {
+ -moz-transform: translateX(-40%); /* Browser bug fix */
+ -webkit-transform: translateX(-40%); /* Browser bug fix */
+ transform: translateX(-40%);
+ }
+}
+</style>
+
+<div class="horizontally">
+    <div id="texts" style="float:left;">
+       <p> One-Click to Build a Apache test webserver demo for OpenShift ... </p>
+    </div>
+
+<div class="inner">
+<img src="http://lrdnf000xjnk3.sdi.corp.example.com/images/bee.gif" alt="Buzzy bee">
+</div>
+</div>

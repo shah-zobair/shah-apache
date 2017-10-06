@@ -1,0 +1,23 @@
+[rhel-7-server-rpms-$patchlevel]
+name = rhel-7-server-rpms-$patchlevel
+mirrorlist=http://$build_server/mirrorlist/mirrorlist.pl?repo=rhel-7-server-rpms-$patchlevel&environment=$environment&release=$releasever&buildtag=$buildtag
+sslverify=0
+enabled=1
+gpgcheck=0
+metadata_expire=12h
+
+[rhel-7-server-extras-rpms-$patchlevel]
+name = rhel-7-server-extras-rpms-$patchlevel
+mirrorlist=http://$build_server/mirrorlist/mirrorlist.pl?repo=rhel-7-server-extras-rpms-$patchlevel&environment=$environment&release=$releasever&buildtag=$buildtag
+sslverify=0
+enabled=1
+gpgcheck=0
+metadata_expire=12h
+
+[rhel-7-server-optional-rpms-$patchlevel]
+name = rhel-7-server-optional-rpms-$patchlevel
+mirrorlist=http://$build_server/mirrorlist/mirrorlist.pl?repo=rhel-7-server-optional-rpms-$patchlevel&environment=$environment&release=$releasever&buildtag=$buildtag
+sslverify=0
+enabled=1
+gpgcheck=0
+metadata_expire=12h

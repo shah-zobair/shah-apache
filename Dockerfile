@@ -1,11 +1,11 @@
 FROM openshift/rhel7
 
-RUN echo "yum-master.example.com" > /etc/yum/vars/build_server && \
-    echo "rhel7-latest" > /etc/yum/vars/buildtag && \
-    echo "prod" > /etc/yum/vars/environment && \
-    echo "latest" > /etc/yum/vars/patchlevel
+#RUN echo "yum-master.example.com" > /etc/yum/vars/build_server && \
+#    echo "rhel7-latest" > /etc/yum/vars/buildtag && \
+#    echo "prod" > /etc/yum/vars/environment && \
+#    echo "latest" > /etc/yum/vars/patchlevel
 
-ADD container.repo /etc/yum.repos.d/
+#ADD container.repo /etc/yum.repos.d/
 
 RUN yum update -y && \
      yum install -y httpd mod_rewrite php php-bcmath php-cli php-common php-devel php-mysql php-odbc php-pdo  php-pspell php-pgsqlphp-ldap php-mbstring php-gd mod_ssl && yum clean all

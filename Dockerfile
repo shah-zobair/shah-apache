@@ -1,4 +1,5 @@
-FROM openshift/rhel7
+FROM rhel7
+#FROM openshift/rhel7
 
 #RUN echo "yum-master.example.com" > /etc/yum/vars/build_server && \
 #    echo "rhel7-latest" > /etc/yum/vars/buildtag && \

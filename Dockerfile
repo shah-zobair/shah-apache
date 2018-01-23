@@ -8,8 +8,10 @@ FROM rhel7
 
 #ADD container.repo /etc/yum.repos.d/
 
-RUN yum update -y && \
-     yum install -y httpd mod_rewrite php php-bcmath php-cli php-common php-devel php-mysql php-odbc php-pdo  php-pspell php-pgsqlphp-ldap php-mbstring php-gd mod_ssl && yum clean all
+
+RUN yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms && \
+    yum update -y && \
+    yum install -y httpd mod_rewrite php php-bcmath php-cli php-common php-devel php-mysql php-odbc php-pdo  php-pspell php-pgsqlphp-ldap php-mbstring php-gd mod_ssl && yum clean all
 
 RUN useradd 1001 \
  && chown -R 1001:1001 /var/log/httpd \

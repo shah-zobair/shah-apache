@@ -13,7 +13,8 @@ RUN yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-se
 
 RUN useradd 1001
 
-COPY run.sh /tmp/COPY html/ /tmp/html/
+COPY run.sh /tmp/
+COPY index.html /tmp/
 
 RUN chown -R 1001:1001 /var/log/httpd && chown -R 1001:1001 /etc/httpd && chown -R 1001:1001 /var/www/html && \
     chmod -R 777 /var/run/httpd && chmod -R 777 /var/log/httpd && chmod -R 777 /etc && \

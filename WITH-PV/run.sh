@@ -1,5 +1,5 @@
 #!/bin/bash
 
-mv /tmp/html/* /var/www/html/
+mv /tmp/index.html /var/www/html/
 
 httpd -D FOREGROUND

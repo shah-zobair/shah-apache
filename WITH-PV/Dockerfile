@@ -18,8 +18,10 @@ COPY index.html /tmp/
 
 RUN chown -R 1001:1001 /var/log/httpd && chown -R 1001:1001 /etc/httpd && chown -R 1001:1001 /var/www/html && \
     chmod -R 777 /var/run/httpd && chmod -R 777 /var/log/httpd && chmod -R 777 /etc && \
-    chown -R 1001:1001 /tmp/html && chmod 777 /tmp/run.sh && chmod -R 777 /var/www/html && \
-    chmod -R 777 /tmp/htmlRUN sed -i 's/User apache/User 1001/g' /etc/httpd/conf/httpd.conf && \
+    chown 1001:1001 /tmp/index.html && chmod 777 /tmp/run.sh && chmod -R 777 /var/www/html
+#    chmod -R 777 /tmp/html
+
+RUN sed -i 's/User apache/User 1001/g' /etc/httpd/conf/httpd.conf && \
     sed -i 's/Group apache/Group 1001/g' /etc/httpd/conf/httpd.conf && \
     sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf && \
     sed -i 's/Listen 443/Listen 8443/g' /etc/httpd/conf.d/ssl.conf && \

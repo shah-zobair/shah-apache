@@ -69,6 +69,9 @@ objects:
       git:
         ref: ${SOURCE_REPOSITORY_REF}
         uri: ${SOURCE_REPOSITORY_URL}
+#        httpProxy: http://10.216.8.124:8081
+#        httpsProxy: https://10.216.8.124:8081
+#        noProxy:
       type: Git
     strategy:
       dockerStrategy:
@@ -151,7 +154,8 @@ parameters:
 - description: The URL of the repository with your application source code.
   displayName: Git Repository URL
   name: SOURCE_REPOSITORY_URL
-  value: https://shah@git-ti.example.com:8443/scm/openshift/shah-apache.git
+  value: https://github.com/shah-zobair/shah-apache.git
+#  value: https://shah@git-ti.example.com:8443/scm/openshift/shah-apache.git
 - description: Set this to a branch name, tag or other ref of your repository if you
     are not using the default branch.
   displayName: Git Reference
@@ -169,4 +173,4 @@ parameters:
 - description: Volume space available for data, e.g. 512Mi, 2Gi
   name: VOLUME_CAPACITY
   required: true
-  value: 10Gi
+  value: 5Gi

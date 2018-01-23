@@ -8,7 +8,6 @@ metadata:
     iconClass: icon-mysql-database
     tags: quickstart,oracle
   name: shah-apache
-#  namespace: shah-demo-2002
 objects:
 - apiVersion: v1
   kind: Service
@@ -60,6 +59,9 @@ objects:
       git:
         ref: ${SOURCE_REPOSITORY_REF}
         uri: ${SOURCE_REPOSITORY_URL}
+#        httpProxy: http://10.216.8.124:8081
+#        httpsProxy: https://10.216.8.124:8081
+#        noProxy: 
       type: Git
     strategy:
       dockerStrategy:
@@ -135,7 +137,8 @@ parameters:
 - description: The URL of the repository with your application source code.
   displayName: Git Repository URL
   name: SOURCE_REPOSITORY_URL
-  value: https://shah@git-ti.example.com:8443/scm/openshift/shah-apache.git
+#  value: https://shah@git-ti.example.com:8443/scm/openshift/shah-apache.git
+  value: https://github.com/shah-zobair/shah-apache.git
 - description: Set this to a branch name, tag or other ref of your repository if you
     are not using the default branch.
   displayName: Git Reference

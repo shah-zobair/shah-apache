@@ -30,3 +30,5 @@ RUN sed -i 's/User apache/User 1001/g' /etc/httpd/conf/httpd.conf && \
 USER 1001
 
 EXPOSE 8080
+
+CMD ["/tmp/run.sh"]

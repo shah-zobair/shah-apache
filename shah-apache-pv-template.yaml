@@ -10,6 +10,18 @@ metadata:
   name: shah-apache-pv
 objects:
 - apiVersion: v1
+  kind: ImageStream
+  metadata:
+    name: rhel7
+  spec:
+    tags:
+    - from:
+        kind: DockerImage
+        name: registry.access.redhat.com/rhel7
+      name: latest
+      importPolicy:
+        scheduled: true
+- apiVersion: v1
   kind: Service
   metadata:
     annotations:
@@ -81,7 +93,6 @@ objects:
         from:
           kind: ImageStreamTag
           name: rhel7:latest
-          namespace: openshift
       type: Source
     triggers:
     - type: ImageChange
@@ -109,8 +120,8 @@ objects:
       spec:
         containers:
         - env:
-          - name: SERVICE_NAME
-            value: ${SERVICE_NAME}
+          - name: NAME
+            value: ${NAME}
           image: ' '
           imagePullPolicy: IfNotPresent
           name: ${NAME}
@@ -123,6 +134,9 @@ objects:
           resources:
             limits:
               memory: ${MEMORY_LIMIT}
+            requests:
+              cpu: ${CPU_REQUEST}
+              memory: ${MEMORY_REQUEST}
         volumes:
         - name: ${NAME}-pvc
           persistentVolumeClaim:
@@ -146,7 +160,15 @@ parameters:
 - description: Maximum amount of memory the container can use.
   displayName: Memory Limit
   name: MEMORY_LIMIT
-  value: 1024Mi
+  value: 512Mi
+- description: Initial memory request by the container.
+  displayName: Memory Request
+  name: MEMORY_REQUEST
+  value: 256Mi
+- description: Initial CPU request by the container.
+  displayName: CPU Request
+  name: CPU_REQUEST
+  value: 150m
 - description: The exposed hostname that will route to the Application service, if
     left blank a value will be defaulted.
   displayName: Application Hostname

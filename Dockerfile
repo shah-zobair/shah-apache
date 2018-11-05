@@ -12,6 +12,8 @@ FROM rhel7
 RUN yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms update -y && \
     yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-server-extras-rpms install -y httpd mod_rewrite php php-bcmath php-cli php-common php-devel php-mysql php-odbc php-pdo  php-pspell php-pgsqlphp-ldap php-mbstring php-gd mod_ssl && yum clean all
 
+RUN cat /etc/passwd
+
 RUN useradd 1001 \
  && chown -R 1001:1001 /var/log/httpd \
  && chown -R 1001:1001 /etc/httpd \

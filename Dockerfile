@@ -15,8 +15,8 @@ RUN yum --disablerepo='*' --enablerepo=rhel-7-server-rpms --enablerepo=rhel-7-se
 #RUN usermod apache -u 1001
 RUN cat /etc/passwd
 
-RUN groupadd cloud -g 1001
- && useradd cloud -u 1001 -g 1001\
+RUN groupadd cloud -g 1001 \
+ && useradd cloud -u 1001 -g 1001 \
  && chown -R cloud:cloud /var/log/httpd \
  && chown -R cloud:cloud /etc/httpd \
  && chmod -R 777 /var/run/httpd \

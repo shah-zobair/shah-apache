@@ -62,6 +62,10 @@ objects:
       description: Defines how to build the application
     name: ${NAME}
   spec:
+    resources:
+      requests:
+        cpu: "100m"
+        memory: "256Mi"
     output:
       to:
         kind: ImageStreamTag

@@ -1,0 +1,19 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  annotations:
+  labels:
+  name: rhel7
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations: null
+    from:
+      kind: DockerImage
+      name: registry.access.redhat.com/rhel7
+    importPolicy:
+      scheduled: true
+    name: latest
+    referencePolicy:
+      type: Source

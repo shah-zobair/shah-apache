@@ -38,5 +38,6 @@ USER 1001
 EXPOSE 8080
 
 COPY index.html /var/www/html/
+COPY bee.gif /var/www/html/
 
 CMD ["httpd", "-D", "FOREGROUND"]

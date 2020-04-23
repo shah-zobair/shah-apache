@@ -1,4 +1,5 @@
-FROM rhel7
+#FROM rhel7
+FROM registry.access.redhat.com/ubi8:8.1
 #FROM openshift/rhel7
 
 #RUN echo "yum-master.example.com" > /etc/yum/vars/build_server && \
